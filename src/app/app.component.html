@@ -1,0 +1,22 @@
+<p>Simple tester SWIM2 <br> Score: {{score}}/30</p>
+<p *ngIf="this.questionNumber>=2 && actualScore>=0"> ~ {{actualScore}}%</p>
+
+<button mat-button *ngIf="this.isButtonVisible" (click)="startQuiz(false)">Start!</button>
+<button mat-button *ngIf="this.isButtonVisible" (click)="startQuiz(true)">Start in random order!</button>
+<br>
+{{question}}
+<br>
+<button mat-button *ngIf="this.isButtonQuizVisible" [disabled]="this.answerVisibe" (click)="answer(1)">{{answerA}}</button>
+<br>
+<button mat-button *ngIf="this.isButtonQuizVisible" [disabled]="this.answerVisibe" (click)="answer(2)">{{answerB}}</button>
+<br>
+<button mat-button *ngIf="this.isButtonQuizVisible" [disabled]="this.answerVisibe" (click)="answer(3)">{{answerC}}</button>
+<br>
+<button mat-button *ngIf="this.isButtonQuizVisible" [disabled]="this.answerVisibe" (click)="answer(4)">{{answerD}}</button>
+<br>
+<label *ngIf="this.answerVisibe">{{answertext}}</label>
+<br>
+<button mat-button *ngIf="this.answerVisibe" (click)="nextQuestion()">{{nextTxT}}</button>
+
+<label *ngIf="this.endScoreVisible">result: {{score}}/30 ~ {{percentageScore}}%</label>
+<button mat-button *ngIf="this.endScoreVisible" (click)="reset()">restart!</button>
